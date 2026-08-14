@@ -32,7 +32,7 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
-    frame = cv2.flip(frame, 1)
+    frame = cv2.flip(frame, 0)
 
     # 가우시안 블러
     blr = cv2.GaussianBlur(frame, (11, 11), 0)
@@ -66,8 +66,8 @@ while True:
         cv2.circle(frame, center, int(radius), (255, 0, 0), 2)
         cv2.circle(frame, center, 5, (255, 0, 0), -1)
 
-    # cv2.imshow("Object Detection", frame)
-    cv2.imshow("LAB Mask", mask)
+    cv2.imshow("Object Detection", frame)
+    # cv2.imshow("LAB Mask", mask)
 
     # while loop rate (FPS) 설정
     time.sleep(max(1. / 25 - (time.time() - start), 0))
